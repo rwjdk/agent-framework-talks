@@ -5,7 +5,7 @@ This repo contains the various Tech Talks I've held about Microsoft Agent Framew
 # Talks
 
 - [Aarhus .NET Usergroup](https://www.meetup.com/anugdk/events/313001712) (Feb 2026)
-  - [Slides](TODO)
+  - [Slides](https://1drv.ms/p/c/33dc329a98012d42/IQAOV7ruWxgHRYheDKwdE6ygAYqgmK13ppVlHSkyxhHTWOQ?e=LIB3pG)
   - [Source Code](TODO)
 
 # Other Learning Resources
