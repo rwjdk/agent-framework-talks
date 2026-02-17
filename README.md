@@ -4,10 +4,9 @@ This repo contains the various Tech Talks I've held about Microsoft Agent Framew
 
 # Talks
 
-## Aarhus .NET Usergroup (Feb. 2026)
-- [Event Details](https://www.meetup.com/anugdk/events/313001712)
-- [Slides](TODO)
-- [Source Code](TODO)
+- [Aarhus .NET Usergroup](https://www.meetup.com/anugdk/events/313001712) (Feb 2026)
+  - [Slides](TODO)
+  - [Source Code](TODO)
 
 # Other Learning Resources
 - If you were unable to attend one of my talks and still need to learn, I can recommend my [Udemy Course](https://www.udemy.com/course/ai-in-c-sharp-using-the-microsoft-agent-framework/?referralCode=34AF1BFA81E5E0C407A2)
