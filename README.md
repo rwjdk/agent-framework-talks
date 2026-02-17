@@ -1,6 +1,6 @@
 # Agent Framework Tech Talks
 
-This repo contains the various Tech Talks I've held about Microsoft Agent Framework (C#)
+This repo contains the various Tech Talks I've held about the Microsoft Agent Framework (C#)
 
 # Talks
 
