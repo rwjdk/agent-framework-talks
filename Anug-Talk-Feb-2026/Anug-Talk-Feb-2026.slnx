@@ -1,1 +1,6 @@
-<Solution />
+<Solution>
+  <Folder Name="/Zero to First Prompt/">
+    <Project Path="Zero-To-First-Prompt-Done/Zero-To-First-Prompt-Done.csproj" Id="b07d8bd5-b79b-4ab0-873f-c937f9ac9658" />
+    <Project Path="Zero-ToFirst-Prompt-Empty/Zero-ToFirst-Prompt-Empty.csproj" Id="3cc965c0-fab4-4292-b5f6-e58ccc3051e6" />
+  </Folder>
+</Solution>
