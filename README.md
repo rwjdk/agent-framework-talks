@@ -1,12 +1,12 @@
 # Agent Framework Tech Talks
 
-This repo contains the various Tech Talks I've held about Microsoft Agent Framework (C#)
+This repo contains the various Tech Talks I've held about the Microsoft Agent Framework (C#)
 
 # Talks
 
 - [Aarhus .NET Usergroup](https://www.meetup.com/anugdk/events/313001712) (Feb 2026)
   - [Slides](https://1drv.ms/p/c/33dc329a98012d42/IQAOV7ruWxgHRYheDKwdE6ygAYqgmK13ppVlHSkyxhHTWOQ?e=LIB3pG)
-  - [Source Code](TODO)
+  - [Source Code](https://github.com/rwjdk/agent-framework-talks/tree/main/Anug-Talk-Feb-2026)
 
 # Other Learning Resources
 - If you were unable to attend one of my talks and still need to learn, I can recommend my [Udemy Course](https://www.udemy.com/course/ai-in-c-sharp-using-the-microsoft-agent-framework/?referralCode=34AF1BFA81E5E0C407A2)
