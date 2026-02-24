@@ -17,6 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Anug-Talk-Feb-2026\ConsoleUtilities\ConsoleUtilities.csproj" />
 		<ProjectReference Include="..\Secrets\Secrets.csproj" />
 	</ItemGroup>
 

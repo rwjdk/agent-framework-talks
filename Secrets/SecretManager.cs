@@ -88,4 +88,10 @@ public class SecretsManager
             emailUsername,
             emailPassword);
     }
+
+    public static (string endpoint, string apiKey) GetAzureOpenAIApiKeyBasedCredentials()
+    {
+        Secrets secrets = GetSecrets();
+        return (secrets.AzureOpenAiEndpoint, secrets.AzureOpenAiKey);
+    }
 }

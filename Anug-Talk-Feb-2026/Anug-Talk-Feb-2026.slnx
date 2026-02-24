@@ -1,10 +1,24 @@
 <Solution>
-  <Folder Name="/AITalkBot/">
+  <Folder Name="/Part 0 - AITalkBot/">
     <Project Path="../AITalkBot/AITalkBot.csproj" Id="b1522684-29f2-4528-9cf4-a4fa178b9c2b" />
   </Folder>
-  <Folder Name="/Zero to First Prompt/">
+  <Folder Name="/Part 1 - Zero to First Prompt/">
     <Project Path="Zero-To-First-Prompt-Done/Zero-To-First-Prompt-Done.csproj" Id="b07d8bd5-b79b-4ab0-873f-c937f9ac9658" />
     <Project Path="Zero-ToFirst-Prompt-Empty/Zero-ToFirst-Prompt-Empty.csproj" Id="3cc965c0-fab4-4292-b5f6-e58ccc3051e6" />
   </Folder>
+  <Folder Name="/Part 2 - Chat/">
+    <Project Path="Chat/Chat.csproj" Id="6d22e6b4-04cc-41fb-b089-5ab60a6ecc7b" />
+  </Folder>
+  <Folder Name="/Part 3 - Tool Calling/">
+    <Project Path="ToolCalling/ToolCalling.csproj" Id="0c13e87e-28aa-4aaf-a41e-5c6b4a6fc243" />
+  </Folder>
+  <Folder Name="/Part 4 - Structured Output/">
+    <Project Path="StructuredOutput/StructuredOutput.csproj" Id="70999b0b-17ca-4fa5-981d-0d3d34cc0648" />
+  </Folder>
+  <Folder Name="/Part 5 - RAG/">
+    <Project Path="BonusEmbeddingDetails/BonusEmbeddingDetails.csproj" Id="d8ceb06b-e43a-494b-b267-d7a73577abb2" />
+    <Project Path="RAG/RAG.csproj" Id="543efbcf-6898-4471-b344-9233bf59b59d" />
+  </Folder>
   <Project Path="../Secrets/Secrets.csproj" Id="d09058f4-28b6-4364-9f7e-2eb64c9db8b1" />
+  <Project Path="ConsoleUtilities/ConsoleUtilities.csproj" Id="479a9d84-12a1-4601-87cf-201998c16b5d" />
 </Solution>
