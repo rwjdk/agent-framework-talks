@@ -9,6 +9,9 @@ using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using Secrets;
 
+Console.Clear();
+Utils.WriteLineRed("Talk Bot Assistant is here to help...");
+
 Secrets.Secrets secrets = SecretsManager.GetSecrets();
 
 AzureOpenAIConnection connection = new()
@@ -26,6 +29,7 @@ await using McpClientTools anugTools = await toolsFactory.GetToolsFromRemoteMcpA
 AzureOpenAIAgent anugAgent = agentFactory.CreateAgent(new AgentOptions
 {
     Model = OpenAIChatModels.Gpt5Mini,
+    ReasoningEffort = OpenAIReasoningEffort.Low,
     Instructions = """
                    You are the co-host of an AI Talks about 'Microsoft Agent Framework' (EventID: 313001712) given by Rasmus Wulff Jensen
                    
@@ -56,6 +60,7 @@ AzureOpenAIAgent anugAgent = agentFactory.CreateAgent(new AgentOptions
         ..anugTools.Tools, 
         ..toolsFactory.GetTools(typeof(MeetupTools)),
         ..toolsFactory.GetTools(new SpeechTools(connection.GetClient())),
+        ..toolsFactory.GetTools(typeof(SlideTools)),
         ..toolsFactory.GetRandomTools()
     ],
     RawToolCallDetails = details =>
