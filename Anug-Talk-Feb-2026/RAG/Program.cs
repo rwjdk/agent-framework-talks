@@ -33,7 +33,7 @@ List<MyDataEntry> data = MyDataService.GetData();
 VectorStoreCollection<Guid, MyVectorEntry> collection = await MyVectorStoreService.PrepareVectorStoreCollection(vectorStore);
 await MyVectorStoreService.IngestData(collection, data);
 
-//3. Search and augment LLM Input
+//3. Create and that we can use to Search (Tool) and augment LLM Input
 ChatClientAgent agent = client.GetChatClient("gpt-4.1-mini").AsAIAgent(
     instructions: "You are a Internal Knowledge-base Agent. Always use tool 'search_internal_kb' to get your data",
     tools: [AIFunctionFactory.Create(new SearchTool(collection).Search, "search_internal_kb")]
@@ -54,11 +54,7 @@ while (true)
     AgentResponse response = await agent.RunAsync(input, session);
     Console.WriteLine(response);
 
-    if (response.Usage != null)
-    {
-        Console.WriteLine();
-        Utils.Gray($"Token Usage: In = {response.Usage.InputTokenCount} | Out = {response.Usage.OutputTokenCount}");
-    }
-
+    Console.WriteLine();
+    Utils.Gray($"Token Usage: In = {response.Usage!.InputTokenCount} | Out = {response.Usage.OutputTokenCount}");
     Utils.Separator();
 }

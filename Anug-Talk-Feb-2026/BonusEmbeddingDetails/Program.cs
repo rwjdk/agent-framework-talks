@@ -2,7 +2,6 @@
 
 using System.ClientModel;
 using Azure.AI.OpenAI;
-using ConsoleUtilities;
 using Microsoft.Extensions.AI;
 using Secrets;
 
@@ -68,7 +67,7 @@ Embedding<float> vectorOfBook = await embeddingGenerator.GenerateAsync(bookData)
 
 //Let's test vector similarity (normally the job of a Vector-store, but we can do it in code as a sample)
 float howCloseWifiDataAndBookDataAreToEachOther = VectorMatch.MatchScore(vectorOfWifiData.Vector, vectorOfBook.Vector);
-Console.WriteLine($"What is the similarity between the Pride and Prejudice book and the Wifi info: {howCloseWifiDataAndBookDataAreToEachOther}");
+Console.WriteLine($"Similarity between the Pride and Prejudice book and the Wifi info: {howCloseWifiDataAndBookDataAreToEachOther}");
 
 
 string question1 = "How can my customer use the Wi-fi";

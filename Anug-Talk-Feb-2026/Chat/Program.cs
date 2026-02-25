@@ -15,11 +15,11 @@ AzureOpenAIClient client = new AzureOpenAIClient(new Uri(endpoint), new ApiKeyCr
 
 ChatClientAgent agent = client
     .GetChatClient("gpt-4.1")
-    .AsAIAgent( //Settings for your agent goes here
+    .AsAIAgent(
         instructions: "" //Add Personality, Rules and format (covered after this demo)
-    ); 
+    );
 
-AgentSession session = await agent.CreateSessionAsync();
+AgentSession session = null; //await agent.CreateSessionAsync();
 
 await NormalLoop();
 //--- Or ---
@@ -33,26 +33,30 @@ async Task NormalLoop()
     {
         Console.Write("> ");
         string input = Console.ReadLine() ?? "";
-        if (input == "/new")
-        {
-            session = await agent.CreateSessionAsync();
-            Console.Clear();
-            continue;
-        }
         AgentResponse response = await agent.RunAsync(input, session);
         Console.WriteLine(response);
 
-        if (response.Usage != null)
-        {
-            Console.WriteLine();
-            Utils.Gray($"Token Usage: In = {response.Usage.InputTokenCount} | Out = {response.Usage.OutputTokenCount}");
-        }
-
+        Console.WriteLine();
+        Utils.Gray($"Token Usage: In = {response.Usage!.InputTokenCount} | Out = {response.Usage.OutputTokenCount}");
         Utils.Separator();
     }
 }
 
 async Task StreamingLoop()
+{
+    while (true)
+    {
+        Console.Write("> ");
+        string input = Console.ReadLine() ?? "";
+        await foreach (AgentResponseUpdate update in agent.RunStreamingAsync(input, session))
+        {
+            Console.Write(update);
+        }
+        Utils.Separator();
+    }
+}
+
+async Task StreamingLoopWithCollectedDataAtTheEnd()
 {
     while (true)
     {
@@ -66,12 +70,8 @@ async Task StreamingLoop()
         }
 
         AgentResponse response = updates.ToAgentResponse();
-        if (response.Usage != null)
-        {
-            Console.WriteLine();
-            Utils.Gray($"Token Usage: In = {response.Usage.InputTokenCount} | Out = {response.Usage.OutputTokenCount}");
-        }
-
+        Console.WriteLine();
+        Utils.Gray($"Token Usage: In = {response.Usage!.InputTokenCount} | Out = {response.Usage.OutputTokenCount}");
         Utils.Separator();
     }
 }

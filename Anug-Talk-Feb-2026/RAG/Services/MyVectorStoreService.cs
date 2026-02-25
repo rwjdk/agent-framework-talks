@@ -19,7 +19,7 @@ public static class MyVectorStoreService
         //Delete old table
         await collection.EnsureCollectionDeletedAsync();
 
-        //Create anew
+        //Create a new
         await collection.EnsureCollectionExistsAsync();
         Console.Clear();
         int counter = 0;
