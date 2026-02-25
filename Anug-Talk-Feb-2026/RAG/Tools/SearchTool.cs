@@ -14,7 +14,7 @@ public class SearchTool(VectorStoreCollection<Guid, MyVectorEntry> vectorStoreCo
         await foreach (VectorSearchResult<MyVectorEntry> searchResult in vectorStoreCollection.SearchAsync(input, top: numberOfSearchResultsWeWantBack))
         {
             string searchResultAsQAndA = $"Q: {searchResult.Record.Question} - A: {searchResult.Record.Answer}";
-            Utils.Gray($"- Search result [Score: {searchResult.Score}] {searchResultAsQAndA}");
+            Utils.Yellow($"- Search result [Score: {searchResult.Score}] {searchResultAsQAndA}");
             mostSimilarKnowledge.AppendLine(searchResultAsQAndA);
         }
 

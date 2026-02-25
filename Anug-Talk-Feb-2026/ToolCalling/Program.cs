@@ -15,7 +15,9 @@ Utils.Gray("--- Tool Calling Demo ---");
 Console.OutputEncoding = Encoding.UTF8;
 
 Secrets.Secrets secrets = SecretsManager.GetSecrets();
-AzureOpenAIClient client = new AzureOpenAIClient(new Uri(secrets.AzureOpenAiEndpoint), new ApiKeyCredential(secrets.AzureOpenAiKey));
+string endpoint = secrets.AzureOpenAiEndpoint;
+string apiKey = secrets.AzureOpenAiKey;
+AzureOpenAIClient client = new(new Uri(endpoint), new ApiKeyCredential(apiKey));
 
 PersonTools personTools = new PersonTools(); //normal class we need to turn into tools a bit later
 

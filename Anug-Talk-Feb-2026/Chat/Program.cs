@@ -37,7 +37,8 @@ async Task NormalLoop()
         Console.WriteLine(response);
 
         Console.WriteLine();
-        Utils.Gray($"Token Usage: In = {response.Usage!.InputTokenCount} | Out = {response.Usage.OutputTokenCount}");
+        Utils.Gray($"Token Usage: In = {response.Usage!.InputTokenCount} | " +
+                   $"Out = {response.Usage.OutputTokenCount}");
         Utils.Separator();
     }
 }
@@ -71,7 +72,8 @@ async Task StreamingLoopWithCollectedDataAtTheEnd()
 
         AgentResponse response = updates.ToAgentResponse();
         Console.WriteLine();
-        Utils.Gray($"Token Usage: In = {response.Usage!.InputTokenCount} | Out = {response.Usage.OutputTokenCount}");
+        Utils.Gray($"Token Usage: In = {response.Usage!.InputTokenCount} | " +
+                   $"Out = {response.Usage.OutputTokenCount}");
         Utils.Separator();
     }
 }
