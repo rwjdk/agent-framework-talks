@@ -25,7 +25,8 @@ int counter = 1;
 Utils.Gray($"Date of knowledge: {movieResult.DateOfKnowledge.ToLongDateString()}");
 foreach (Movie movie in movieResult.Movies)
 {
-    Console.WriteLine($"{counter}. {movie.Title} by {movie.Director} [Released {movie.YearOfRelease} with a score of {movie.ImdbScore}]");
+    Console.WriteLine($"{counter}. {movie.Title} by {movie.Director} " +
+                      $"[Released {movie.YearOfRelease} with a score of {movie.ImdbScore}]");
     counter++;
 }
 

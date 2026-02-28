@@ -66,8 +66,8 @@ Embedding<float> vectorOfBook = await embeddingGenerator.GenerateAsync(bookData)
 */
 
 //Let's test vector similarity (normally the job of a Vector-store, but we can do it in code as a sample)
-float howCloseWifiDataAndBookDataAreToEachOther = VectorMatch.MatchScore(vectorOfWifiData.Vector, vectorOfBook.Vector);
-Console.WriteLine($"Similarity between the Pride and Prejudice book and the Wifi info: {howCloseWifiDataAndBookDataAreToEachOther}");
+float bookAndWifiMatch = VectorMatch.MatchScore(vectorOfWifiData.Vector, vectorOfBook.Vector);
+Console.WriteLine($"Similarity between the Pride and Prejudice book and the Wifi info: {bookAndWifiMatch}");
 
 
 string question1 = "How can my customer use the Wi-fi";
@@ -82,7 +82,7 @@ Console.WriteLine($"Similarity between '{question2}' and the Wifi info: {questio
 
 string question3 = "What is the office Wifi?";
 Embedding<float> vectorOfQuestion3 = await embeddingGenerator.GenerateAsync(question3);
-float question3MatchScore = VectorMatch.MatchScore(vectorOfBook.Vector, vectorOfQuestion2.Vector);
+float question3MatchScore = VectorMatch.MatchScore(vectorOfBook.Vector, vectorOfQuestion3.Vector);
 Console.WriteLine($"Similarity between '{question3}' and the Pride and Prejudice Book: {question3MatchScore}");
 
 public static class VectorMatch //Don't ask me how this code works :-P
