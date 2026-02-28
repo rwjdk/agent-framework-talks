@@ -13,7 +13,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\ConsoleUtilities\ConsoleUtilities.csproj" />
 		<ProjectReference Include="..\..\Secrets\Secrets.csproj" />
-		<ProjectReference Include="..\ConsoleUtilities\ConsoleUtilities.csproj" />
 	</ItemGroup>
 </Project>

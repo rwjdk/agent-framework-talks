@@ -3,18 +3,16 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
-    <RootNamespace>Zero_ToFirst_Prompt_Empty</RootNamespace>
+    <RootNamespace>Zero_To_First_Prompt_Done</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <UserSecretsId>80304bae-f200-4fc9-a1c8-07baadf3a299</UserSecretsId>
+    <UserSecretsId>9c1838c8-3441-4bcc-ac65-aa2a1784f042</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.AI.OpenAI" Version="2.8.0-beta.1" />
+    <PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.0.0-rc1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\ConsoleUtilities\ConsoleUtilities.csproj" />
   </ItemGroup>
 
 </Project>

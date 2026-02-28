@@ -9,11 +9,10 @@
 	<ItemGroup>
 		<PackageReference Include="Azure.AI.OpenAI" Version="2.8.0-beta.1" />
 		<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.0.0-rc1" />
-		<PackageReference Include="Microsoft.SemanticKernel.Connectors.SqliteVec" Version="1.72.0-preview" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\ConsoleUtilities\ConsoleUtilities.csproj" />
 		<ProjectReference Include="..\..\Secrets\Secrets.csproj" />
+		<ProjectReference Include="..\ConsoleUtilities\ConsoleUtilities.csproj" />
 	</ItemGroup>
 </Project>

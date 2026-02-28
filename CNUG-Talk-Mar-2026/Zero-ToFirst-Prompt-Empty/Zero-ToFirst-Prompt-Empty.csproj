@@ -13,8 +13,4 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\ConsoleUtilities\ConsoleUtilities.csproj" />
-  </ItemGroup>
-
 </Project>

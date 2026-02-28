@@ -1,6 +1,6 @@
 <Solution>
   <Folder Name="/Part 0 - AITalkBot/">
-    <Project Path="AITalkBot/AITalkBot.csproj" />
+    <Project Path="../AITalkBot/AITalkBot.csproj" Id="b1522684-29f2-4528-9cf4-a4fa178b9c2b" />
   </Folder>
   <Folder Name="/Part 1 - Zero to First Prompt/">
     <Project Path="Zero-To-First-Prompt-Done/Zero-To-First-Prompt-Done.csproj" Id="b07d8bd5-b79b-4ab0-873f-c937f9ac9658" />
@@ -19,6 +19,6 @@
     <Project Path="BonusEmbeddingDetails/BonusEmbeddingDetails.csproj" Id="d8ceb06b-e43a-494b-b267-d7a73577abb2" />
     <Project Path="RAG/RAG.csproj" Id="543efbcf-6898-4471-b344-9233bf59b59d" />
   </Folder>
-  <Project Path="../ConsoleUtilities/ConsoleUtilities.csproj" />
   <Project Path="../Secrets/Secrets.csproj" Id="d09058f4-28b6-4364-9f7e-2eb64c9db8b1" />
+  <Project Path="ConsoleUtilities/ConsoleUtilities.csproj" Id="479a9d84-12a1-4601-87cf-201998c16b5d" />
 </Solution>
