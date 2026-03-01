@@ -2,16 +2,20 @@
 
 This repo contains the various Tech Talks I've held about the Microsoft Agent Framework (C#)
 
-# Talks
+## Talks
 
 - [Aarhus .NET Usergroup](https://www.meetup.com/anugdk/events/313001712) (Feb 2026)
   - [Slides](https://1drv.ms/p/c/33dc329a98012d42/IQAOV7ruWxgHRYheDKwdE6ygAYqgmK13ppVlHSkyxhHTWOQ?e=LIB3pG)
   - [Source Code](https://github.com/rwjdk/agent-framework-talks/tree/main/Anug-Talk-Feb-2026)
 
-# Other Learning Resources
+- [Copenhagen .NET Usergroup](https://www.meetup.com/copenhagen-net-user-group/events/313489657) (Mar 2026)
+  - [Slides](https://1drv.ms/p/c/33dc329a98012d42/IQBDCFSsPtNqRJxIMXwJB4beAclFK7YzG_fVFjwDli8KHis?e=xZwMBh)
+  - [Source Code](https://github.com/rwjdk/agent-framework-talks/tree/main/CNUG-Talk-Mar-2026)
+
+## Other Learning Resources
 - If you were unable to attend one of my talks and still need to learn, I can recommend my [Udemy Course](https://www.udemy.com/course/ai-in-c-sharp-using-the-microsoft-agent-framework/?referralCode=34AF1BFA81E5E0C407A2)
 - I also have a [YouTube Channel](https://www.youtube.com/@rwj_dk) where I dive even deeper into all things AI in C#)
 
-# Links
+## Links
 - [Microsoft Agent Framework GitHub Repo](https://github.com/microsoft/agent-framework)
 - [Agent Framework Toolkit](https://github.com/rwjdk/AgentFrameworkToolkit) (A series of NuGet Packages that make AF even easier to work with)

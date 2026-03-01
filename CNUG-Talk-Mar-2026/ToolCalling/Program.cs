@@ -17,7 +17,10 @@ Console.OutputEncoding = Encoding.UTF8;
 Secrets.Secrets secrets = SecretsManager.GetSecrets();
 AzureOpenAIClient client = new AzureOpenAIClient(new Uri(secrets.AzureOpenAiEndpoint), new ApiKeyCredential(secrets.AzureOpenAiKey));
 
-PersonTools personTools = new PersonTools(); //normal class we need to turn into tools a bit later
+MyPersonClassWithMethods myPersonInstance = new MyPersonClassWithMethods();
+AITool getPersonsTool = AIFunctionFactory.Create(myPersonInstance.GetPersons, "get_persons", "Get all persons we know");
+AITool getPersonTool = AIFunctionFactory.Create(myPersonInstance.GetPerson, "get_person", "Get a specific person");
+
 
 #region MCP and other tools (we will see that a bit later)
 await using McpClient mcpClient = await McpClient.CreateAsync(new HttpClientTransport(new HttpClientTransportOptions
@@ -32,15 +35,18 @@ await using McpClient mcpClient = await McpClient.CreateAsync(new HttpClientTran
 AIToolsFactory toolsFactory = new AIToolsFactory();
 #endregion
 
+AITool changeColorTool = AIFunctionFactory.Create(ChangeConsoleColor, "change_color", "Change the color of the interface");
+
+
 ChatClientAgent agent = client
     .GetChatClient("gpt-4.1-mini")
     .AsAIAgent(
         instructions: "When asking for issues and releases on github it is for repo 'microsoft/agent-framework'",
         tools: //List of Tools the agent should be available to use
         [
-            AIFunctionFactory.Create(personTools.GetPersons, "get_persons", "Get all persons we know"),
-            AIFunctionFactory.Create(personTools.GetPerson, "get_person", "Get a specific person"),
-            AIFunctionFactory.Create(ChangeConsoleColor, "change_color", "Change the color of the interface"),
+            getPersonsTool,
+            getPersonTool,
+            changeColorTool,
             ..await mcpClient.ListToolsAsync()
         ]
     )//.AsBuilder().Use(ToolCallingMiddleware).Build()
@@ -83,8 +89,10 @@ static async ValueTask<object?> ToolCallingMiddleware(AIAgent agent, FunctionInv
     return await next.Invoke(context, cancellationToken);
 }
 
-//Action Tool
+//Action Tools
 static void ChangeConsoleColor(ConsoleColor color)
 {
     Console.ForegroundColor = color;
 }
+
+
