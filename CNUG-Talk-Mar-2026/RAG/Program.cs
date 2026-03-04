@@ -58,3 +58,4 @@ while (true)
     Utils.Gray($"Token Usage: In = {response.Usage!.InputTokenCount} | Out = {response.Usage.OutputTokenCount}");
     Utils.Separator();
 }
+

@@ -3,7 +3,7 @@
 namespace ToolCalling.Tools;
 
 //Information Tool
-public class MyPersonClassWithMethods
+public class PersonTools
 {
     public PersonInfo[] GetPersons()
     {

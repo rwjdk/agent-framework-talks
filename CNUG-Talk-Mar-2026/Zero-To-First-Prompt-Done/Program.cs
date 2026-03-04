@@ -4,6 +4,7 @@ using Azure.AI.OpenAI;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.Configuration;
 using OpenAI.Chat;
+// ReSharper disable RedundantAssignment
 Console.Clear();
 Console.OutputEncoding = Encoding.UTF8;
 
@@ -11,10 +12,12 @@ Console.OutputEncoding = Encoding.UTF8;
 //Step 2: Deploy a model (gpt-4.1-mini)
 //Step 3: Setup Secret and Add two NuGet packages (Azure.AI.OpenAI + Microsoft.Agents.AI.OpenAI)
 //[Note that all AI Packages are pre-release]
+
 IConfigurationRoot config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
-string endpoint = config["Endpoint"]!;
 string apiKey = config["ApiKey"]!;
-string model = "gpt-4.1-mini";
+
+const string endpoint = "https://Sensum365AI.services.ai.azure.com";
+const string model = "gpt-4.1-mini";
 
 //Step 4: Create an AzureOpenAI Client
 //Step 5: On the client create a ChatClient (defining the model to use) and convert it to a Microsoft Agent Framework 'ChatClientAgent' (or the more generic AIAgent)

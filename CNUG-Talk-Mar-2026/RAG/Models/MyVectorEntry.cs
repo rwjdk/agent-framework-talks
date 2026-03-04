@@ -16,3 +16,5 @@ public class MyVectorEntry
     [VectorStoreVector(1536)]
     public string Vector => $"Q: {Question} - A: {Answer}";
 }
+
+

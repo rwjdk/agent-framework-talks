@@ -14,12 +14,12 @@ Console.OutputEncoding = Encoding.UTF8;
 AzureOpenAIClient client = new AzureOpenAIClient(new Uri(endpoint), new ApiKeyCredential(apiKey));
 
 ChatClientAgent agent = client
-    .GetChatClient("gpt-4.1")
+    .GetChatClient("gpt-5-mini")
     .AsAIAgent(
-        instructions: "" //Add Personality, Rules and format (covered after this demo)
+        instructions: "You are a nice AI"
     );
 
-AgentSession session = null; //await agent.CreateSessionAsync();
+AgentSession session = await agent.CreateSessionAsync();
 
 await NormalLoop();
 //--- Or ---

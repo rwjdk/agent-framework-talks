@@ -11,7 +11,9 @@ public class SearchTool(VectorStoreCollection<Guid, MyVectorEntry> vectorStoreCo
     {
         StringBuilder mostSimilarKnowledge = new StringBuilder();
         int numberOfSearchResultsWeWantBack = 3;
-        await foreach (VectorSearchResult<MyVectorEntry> searchResult in vectorStoreCollection.SearchAsync(input, top: numberOfSearchResultsWeWantBack))
+        await foreach (VectorSearchResult<MyVectorEntry> searchResult in vectorStoreCollection.SearchAsync(
+                           searchValue: input, 
+                           top: numberOfSearchResultsWeWantBack))
         {
             string searchResultAsQAndA = $"Q: {searchResult.Record.Question} - A: {searchResult.Record.Answer}";
             Utils.Gray($"- Search result [Score: {searchResult.Score}] {searchResultAsQAndA}");
@@ -23,3 +25,5 @@ public class SearchTool(VectorStoreCollection<Guid, MyVectorEntry> vectorStoreCo
         return mostSimilarKnowledge.ToString();
     }
 }
+
+

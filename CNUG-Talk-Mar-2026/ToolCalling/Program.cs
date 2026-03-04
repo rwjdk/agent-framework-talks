@@ -17,12 +17,13 @@ Console.OutputEncoding = Encoding.UTF8;
 Secrets.Secrets secrets = SecretsManager.GetSecrets();
 AzureOpenAIClient client = new AzureOpenAIClient(new Uri(secrets.AzureOpenAiEndpoint), new ApiKeyCredential(secrets.AzureOpenAiKey));
 
-MyPersonClassWithMethods myPersonInstance = new MyPersonClassWithMethods();
-AITool getPersonsTool = AIFunctionFactory.Create(myPersonInstance.GetPersons, "get_persons", "Get all persons we know");
-AITool getPersonTool = AIFunctionFactory.Create(myPersonInstance.GetPerson, "get_person", "Get a specific person");
+PersonTools personInstance = new PersonTools();
+AITool getPersonsTool = AIFunctionFactory.Create(personInstance.GetPersons, "get_persons", "Get all persons we know");
+AITool getPersonTool = AIFunctionFactory.Create(personInstance.GetPerson, "get_person", "Get a specific person");
 
 
 #region MCP and other tools (we will see that a bit later)
+
 await using McpClient mcpClient = await McpClient.CreateAsync(new HttpClientTransport(new HttpClientTransportOptions
 {
     Endpoint = new Uri("https://api.githubcopilot.com/mcp/"),
@@ -32,24 +33,32 @@ await using McpClient mcpClient = await McpClient.CreateAsync(new HttpClientTran
         {"Authorization", $"Bearer {secrets.GitHubPatToken}"}
     }
 }));
+
+IList<McpClientTool> mcpTools = await mcpClient.ListToolsAsync();
+
 AIToolsFactory toolsFactory = new AIToolsFactory();
 #endregion
 
 AITool changeColorTool = AIFunctionFactory.Create(ChangeConsoleColor, "change_color", "Change the color of the interface");
 
 
-ChatClientAgent agent = client
+AIAgent agent = client
     .GetChatClient("gpt-4.1-mini")
     .AsAIAgent(
-        instructions: "When asking for issues and releases on github it is for repo 'microsoft/agent-framework'",
         tools: //List of Tools the agent should be available to use
         [
             getPersonsTool,
             getPersonTool,
             changeColorTool,
-            ..await mcpClient.ListToolsAsync()
+            ..mcpTools
         ]
-    )//.AsBuilder().Use(ToolCallingMiddleware).Build()
+    ).AsBuilder().Use(ToolCallingMiddleware).Build()
+    
+    
+    
+    
+    
+    //.AsBuilder().Use(ToolCallingMiddleware).Build()
     ;
 
 AgentSession session = await agent.CreateSessionAsync();
@@ -62,6 +71,7 @@ while (true)
     {
         session = await agent.CreateSessionAsync();
         Console.Clear();
+        Console.ResetColor();
         continue;
     }
     AgentResponse response = await agent.RunAsync(input, session);
@@ -72,8 +82,11 @@ while (true)
     Utils.Separator();
 }
 
-static async ValueTask<object?> ToolCallingMiddleware(AIAgent agent, FunctionInvocationContext context,
-    Func<FunctionInvocationContext, CancellationToken, ValueTask<object?>> next, CancellationToken cancellationToken)
+static async ValueTask<object?> ToolCallingMiddleware(
+    AIAgent agent, 
+    FunctionInvocationContext context,
+    Func<FunctionInvocationContext, CancellationToken, ValueTask<object?>> next, 
+    CancellationToken cancellationToken)
 {
     StringBuilder toolDetails = new();
     toolDetails.Append($"- Tool Call: '{context.Function.Name}'");
@@ -82,8 +95,7 @@ static async ValueTask<object?> ToolCallingMiddleware(AIAgent agent, FunctionInv
         toolDetails.Append($" (Args: {string.Join(",", context.Arguments.Select(x => $"[{x.Key} = {x.Value}]"))}");
     }
     Utils.Yellow(toolDetails.ToString());
-
-
+    
     //Tip: You can on the fly manipulate and cancel tool calls here
 
     return await next.Invoke(context, cancellationToken);
