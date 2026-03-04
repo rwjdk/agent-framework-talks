@@ -26,7 +26,7 @@ const string model = "gpt-4.1-mini";
 
 #region Finished code
 {
-    return;
+    /*
     AzureOpenAIClient client = new AzureOpenAIClient(new Uri(endpoint), new ApiKeyCredential(apiKey));
 
     ChatClientAgent agent = client.GetChatClient(model).AsAIAgent();
@@ -51,5 +51,6 @@ const string model = "gpt-4.1-mini";
     }
 
     Console.WriteLine("--- Done ---");
+    */
 }
 #endregion
