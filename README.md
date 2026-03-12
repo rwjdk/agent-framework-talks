@@ -11,6 +11,7 @@ This repo contains the various Tech Talks I've held about the Microsoft Agent Fr
 - [Copenhagen .NET Usergroup](https://www.meetup.com/copenhagen-net-user-group/events/313489657) (Mar 2026)
   - [Slides](https://1drv.ms/p/c/33dc329a98012d42/IQBDCFSsPtNqRJxIMXwJB4beAclFK7YzG_fVFjwDli8KHis?e=xZwMBh)
   - [Source Code](https://github.com/rwjdk/agent-framework-talks/tree/main/CNUG-Talk-Mar-2026)
+  - [Video version of the talk](https://youtu.be/HHy0-sXlmUY?is=cccw8IR3ePXtfCz7)
 
 ## Other Learning Resources
 - If you were unable to attend one of my talks and still need to learn, I can recommend my [Udemy Course](https://www.udemy.com/course/ai-in-c-sharp-using-the-microsoft-agent-framework/?referralCode=34AF1BFA81E5E0C407A2)
