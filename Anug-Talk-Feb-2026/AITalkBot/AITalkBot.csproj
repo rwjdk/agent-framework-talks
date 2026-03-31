@@ -11,9 +11,9 @@
 		<PackageReference Include="GraphQL.Client" Version="6.1.0" />
 		<PackageReference Include="GraphQL.Client.Serializer.SystemTextJson" Version="6.1.0" />
 		<PackageReference Include="GraphQL.Client" Version="6.1.0" />
-		<PackageReference Include="NAudio" Version="2.2.1" />
-		<PackageReference Include="AgentFrameworkToolkit.AzureOpenAI" Version="1.0.0-rc4" />
-		<PackageReference Include="AgentFrameworkToolkit.Tools.ModelContextProtocol" Version="1.0.0-rc4" />
+		<PackageReference Include="NAudio" Version="2.3.0" />
+		<PackageReference Include="AgentFrameworkToolkit.AzureOpenAI" Version="1.0.0-rc4.2" />
+		<PackageReference Include="AgentFrameworkToolkit.Tools.ModelContextProtocol" Version="1.0.0-rc4.2" />
 	</ItemGroup>
 
 	<ItemGroup>
