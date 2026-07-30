@@ -3,13 +3,13 @@ using ConsoleUtilities;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.VectorData;
-using Microsoft.SemanticKernel.Connectors.SqliteVec;
 using OpenAI.Chat;
 using RAG;
 using RAG.Models;
 using Secrets;
 using System.ClientModel;
 using System.Text;
+using CommunityToolkit.VectorData.SqliteVec;
 using RAG.Services;
 using RAG.Tools;
 
