@@ -1,12 +1,12 @@
 ﻿using AgentFrameworkToolkit.Tools;
-using Azure.AI.OpenAI;
 using OpenAI.Audio;
 using System.ClientModel;
 using NAudio.Wave;
+using OpenAI;
 
 namespace AITalkBot.Tools;
 
-public class SpeechTools(AzureOpenAIClient azureOpenAIClient)
+public class SpeechTools(OpenAIClient azureOpenAIClient)
 {
     [AITool("speak_text")]
     public void Speak(string introduction)
